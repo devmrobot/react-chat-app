@@ -12,7 +12,7 @@ function MessagesArea() {
           minHeight: 500,
         }}
       >
-        Eva : Hello it's me again !
+        Jane : Hello it's me !
       </Box>
     </>
   )

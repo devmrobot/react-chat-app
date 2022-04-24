@@ -16,7 +16,7 @@ function Input() {
           <TextField
             fullWidth
             id="input-with-icon-textfield"
-            label="TextField"
+            label="Type a message..."
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
