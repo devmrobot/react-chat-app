@@ -1,22 +1,27 @@
 import './App.css';
+import * as React from 'react';
+import Chat from './components/Chat';
+import Container from '@mui/material/Container';
 const { io } = require("socket.io-client");
-const socket = io.connect("http://localhost/3001");
+const socket = io.connect("http://localhost:3001");
 
 function App() {
 
-  const sendMessage = () => {
-    // socket.emit()
-  }
-
+  socket.emit("connection", (socket) => {
+    
+  });
+  
   return (
     <>
-      <div className="App">
-      React x socket.io app
-      </div>
-      <ul id="messages"></ul>
-      <form id="form" action="">
-        <input id="input" placeholder="Type a message..." /><button onClick={sendMessage}>Send</button>
-      </form>
+      <Container maxWidth="sm"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <h1>React X socket.io</h1>
+        <Chat />
+      </Container>
     </>
   );
 }

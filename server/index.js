@@ -1,22 +1,25 @@
-const express = require("express");
-const { createServer } = require("http");
-const app = express();
+const http = require("http");
 const { Server } = require("socket.io");
-const cors = require("cors");
+const express = require("express");
+const app = express();
 
-const httpServer = createServer(app);
-app.use(cors());
-const io = new Server(httpServer, {
-    cors: {
-      origin: "localhost/3001",
-      methods: ["GET", "POST"],
-    }
-  });
+const server = http.createServer(app);
 
-io.on('connection', (socket) => {
-    console.log(`User connected ${socket.id}`);
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000"
+  }
 });
 
-httpServer.listen(3001,() => {
-    console.log(`Example app listening on port 3001`)
-})
+io.on("connection", (socket) => {
+  console.log("User connected");
+  console.log("socket id",socket.id);
+});
+
+server.on("error", (err) => {
+  console.log("Error opening server");
+});
+
+server.listen(3001, () => {
+  console.log("Server working on port 3001");
+});
