@@ -1,21 +1,17 @@
 import './App.css';
 import * as React from 'react';
 import Chat from './components/Chat';
-import Container from '@mui/material/Container';
+import { Routes, Route} from "react-router-dom";
+import Home from './components/Home';
 
 function App() {
   
   return (
     <>
-      <Container maxWidth="sm"
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}>
-        <h1>React X socket.io</h1>
-        <Chat />
-      </Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="chatroom" element={<Chat />} />
+        </Routes>
     </>
   );
 }

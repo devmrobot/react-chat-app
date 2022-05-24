@@ -8,6 +8,7 @@ function Chat() {
   return (
     <>
       <Container maxWidth="sm">
+      <h1>React X socket.io</h1>
         <MessagesArea />
         <Input />
       </Container>
